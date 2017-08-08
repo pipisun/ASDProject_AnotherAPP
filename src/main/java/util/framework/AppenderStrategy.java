@@ -1,6 +1,6 @@
 package util.framework;
 
-public interface Appender {
+public interface AppenderStrategy {
 	
 	public void append(LogItem logitem);
 
