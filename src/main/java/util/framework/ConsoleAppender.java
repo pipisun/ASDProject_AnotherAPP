@@ -2,7 +2,7 @@ package util.framework;
 
 import java.util.Date;
 
-public class ConsoleAppender implements Appender {
+public class ConsoleAppender implements AppenderStrategy {
 
 	@Override
 	public void append(LogItem logitem) {
