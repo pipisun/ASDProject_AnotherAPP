@@ -23,7 +23,6 @@ public class FileAppender implements Appender {
 	public void append(LogItem logitem) {
 		String logcontent = "Log level:" + logitem.loggerlevel + "." + "Message:" + logitem.message + "." + "Date:"
 				+ new Date() + "\n";
-		System.out.println(path);
 		try {
 			creatTxtFile();
 			// readStr=readTxtFile();
@@ -42,7 +41,7 @@ public class FileAppender implements Appender {
 	public static void creatTxtFile() throws IOException {
 		if (!filename.exists()) {
 			filename.createNewFile();
-			System.out.println(filename + " was created.");
+			System.err.println(filename + "was created.");
 		}
 	}
 
