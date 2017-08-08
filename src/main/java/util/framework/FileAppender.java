@@ -13,7 +13,8 @@ public class FileAppender implements Appender {
 
 	public static BufferedReader bufread;
 	// Create the file name and path
-	private static String path = "/Users/yangyangli/Documents/Asdlog.txt";
+	private static String path = System.getProperty("user.dir") + "/Asdlog.txt";
+//	private static String path = "/Users/yangyangli/Documents/Asdlog.txt";
 	private static File filename = new File(path);
 	private static String readStr = "";
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
@@ -22,6 +23,7 @@ public class FileAppender implements Appender {
 	public void append(LogItem logitem) {
 		String logcontent = "Log level:" + logitem.loggerlevel + "." + "Message:" + logitem.message + "." + "Date:"
 				+ new Date() + "\n";
+		System.out.println(path);
 		try {
 			creatTxtFile();
 			// readStr=readTxtFile();
@@ -40,7 +42,7 @@ public class FileAppender implements Appender {
 	public static void creatTxtFile() throws IOException {
 		if (!filename.exists()) {
 			filename.createNewFile();
-			System.err.println(filename + "was created.");
+			System.out.println(filename + " was created.");
 		}
 	}
 
