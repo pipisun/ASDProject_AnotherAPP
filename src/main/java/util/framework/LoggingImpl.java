@@ -6,7 +6,7 @@ public class LoggingImpl implements Logging {
 	   
 	private int logLevel;
 	private static Date date = new Date();
-	private Appender appender;
+	private AppenderStrategy appenderStrategy;
 	
 	// private constructor to avoid to be instanced
 	private LoggingImpl(){}
@@ -29,8 +29,8 @@ public class LoggingImpl implements Logging {
 //	public void debug(String msg) {
 //		if(this.logLevel==1){
 //			LogItem logitem=new LogItem(logLevel,msg,date);
-//			AppenderStragety appenderStagety=new AppenderStragety(appender);
-//			appenderStagety.appender(logitem);
+//			AppenderLogs appenderStagety=new AppenderLogs(appenderStrategy);
+//			appenderStagety.appenderStrategy(logitem);
 //		}
 //	}
 
@@ -38,7 +38,7 @@ public class LoggingImpl implements Logging {
 	public void info(String msg) {
 		if(this.logLevel==1){
 			LogItem logitem=new LogItem(logLevel,msg,date);
-			AppenderStragety appenderStagety=new AppenderStragety(appender);
+			AppenderLogs appenderStagety=new AppenderLogs(appenderStrategy);
 			appenderStagety.appender(logitem);
 		}
 
@@ -48,7 +48,7 @@ public class LoggingImpl implements Logging {
 	public void warn(String msg) {
 		if(this.logLevel==2){
 			LogItem logitem=new LogItem(logLevel,msg,date);
-			AppenderStragety appenderStagety=new AppenderStragety(appender);
+			AppenderLogs appenderStagety=new AppenderLogs(appenderStrategy);
 			appenderStagety.appender(logitem);
 		}
 
@@ -58,8 +58,8 @@ public class LoggingImpl implements Logging {
 //	public void fatal(String msg) {
 //		if(this.logLevel==5){
 //			LogItem logitem=new LogItem(logLevel,msg,date);
-//			AppenderStragety appenderStagety=new AppenderStragety(appender);
-//			appenderStagety.appender(logitem);
+//			AppenderLogs appenderStagety=new AppenderLogs(appenderStrategy);
+//			appenderStagety.appenderStrategy(logitem);
 //		}
 //
 //	}
@@ -68,7 +68,7 @@ public class LoggingImpl implements Logging {
 	public void error(String msg) {
 		if(this.logLevel==3){
 			LogItem logitem=new LogItem(logLevel,msg,date);
-			AppenderStragety appenderStagety=new AppenderStragety(appender);
+			AppenderLogs appenderStagety=new AppenderLogs(appenderStrategy);
 			appenderStagety.appender(logitem);
 		}
 	}
@@ -80,8 +80,8 @@ public class LoggingImpl implements Logging {
 	}
 
 	@Override
-	public void setLoggerAppender(Appender appender) {
-		this.appender=appender;
+	public void setLoggerAppender(AppenderStrategy appenderStrategy) {
+		this.appenderStrategy = appenderStrategy;
 	}
 
 }

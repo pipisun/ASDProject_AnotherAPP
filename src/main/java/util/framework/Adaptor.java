@@ -4,7 +4,7 @@ public class Adaptor implements Target {
 
 	private Provider provider = new LoggerFactory();
 	private Logging logger = provider.produce();
-	private Appender appender = new FileAppender();// default text file
+	private AppenderStrategy appenderStrategy = new FileAppender();// default text file
 
 	private int logLevel = 1;// default is info
 
@@ -12,10 +12,10 @@ public class Adaptor implements Target {
 	public void configLog(int loglevel, int appenderTo) {
 		logger.setLoggerLevel(loglevel);
 		if (appenderTo == 1) {
-			logger.setLoggerAppender(appender);
+			logger.setLoggerAppender(appenderStrategy);
 		} else if (appenderTo == 2) {
-			appender = new ConsoleAppender();
-			logger.setLoggerAppender(appender);
+			appenderStrategy = new ConsoleAppender();
+			logger.setLoggerAppender(appenderStrategy);
 		}
 		this.logLevel = loglevel;
 	}

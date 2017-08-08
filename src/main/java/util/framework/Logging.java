@@ -14,5 +14,5 @@ public interface Logging {
 	
 	public void setLoggerLevel(int i);
 	
-	public void setLoggerAppender(Appender appender);
+	public void setLoggerAppender(AppenderStrategy appenderStrategy);
 }
