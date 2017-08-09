@@ -4,6 +4,7 @@ public class AppenderLogs {
 
 	private AppenderStrategy appenderStrategy;
 
+	public AppenderLogs() { }
 	public AppenderLogs(AppenderStrategy appenderStrategy) {
 		this.appenderStrategy = appenderStrategy;
 	}

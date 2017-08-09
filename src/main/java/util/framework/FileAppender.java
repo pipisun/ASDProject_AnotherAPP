@@ -12,8 +12,8 @@ public class FileAppender implements AppenderStrategy {
 
 	public static BufferedReader bufread;
 	// Create the file name and path
-	//private static String path = System.getProperty("user.dir") + "/Asdlog.txt";
-	private static String path = "/Users/yangyangli/Documents/Asdlog.txt";
+	//private static String path = System.getProperty("user.dir") + "/BankOpreationlog.txt";
+	private static String path = "/Users/yangyangli/Documents/BankOpreationlog.txt";
 	private static File filename = new File(path);
 	private static String readStr = "";
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
