@@ -2,5 +2,5 @@ target/*
 *.class
 /bin/
 .idea/*
-asdFramwork.iml
+*.iml
 
