@@ -1,0 +1,13 @@
+package framework.iterator;
+
+/**
+ * Created by yf_zh on 2017/08/08.
+ */
+public interface AbstractIterator {
+    public void next();
+    public boolean isLast();
+    public void previous();
+    public boolean isFirst();
+    public Object getNextItem();
+    public Object getPreviousItem();
+}
