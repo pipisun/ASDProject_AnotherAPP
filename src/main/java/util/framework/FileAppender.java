@@ -18,6 +18,10 @@ public class FileAppender implements AppenderStrategy {
 	private static String readStr = "";
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
+	public static File getFilename() {
+		return filename;
+	}
+
 	@Override
 	public void append(LogItem logitem) {
 		String logcontent = "Log level:" + logitem.loggerlevel + "." + "Message:" + logitem.message + "." + "Date:"
