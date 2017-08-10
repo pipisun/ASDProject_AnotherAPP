@@ -12,8 +12,8 @@ public class FileAppender implements AppenderStrategy {
 
 	public static BufferedReader bufread;
 	// Create the file name and path
-	//private static String path = System.getProperty("user.dir") + "/BankOpreationlog.txt";
-	private static String path = "/Users/yangyangli/Documents/BankOpreationlog.txt";
+	private static String path = System.getProperty("user.home") + "/Documents" + "/BankOperationLog.txt";
+//	private static String path = "/Users/yangyangli/Documents/BankOpreationlog.txt";
 	private static File filename = new File(path);
 	private static String readStr = "";
 	private static final String LINE_SEPARATOR = System.getProperty("line.separator");
@@ -44,7 +44,7 @@ public class FileAppender implements AppenderStrategy {
 	public static void creatTxtFile() throws IOException {
 		if (!filename.exists()) {
 			filename.createNewFile();
-			System.err.println(filename + "was created.");
+			System.err.println(filename + " was created.");
 		}
 	}
 
