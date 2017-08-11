@@ -8,6 +8,8 @@ import java.io.ObjectOutputStream;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserAccessFacade<T> implements DataAccess<T> {
 	
@@ -46,7 +48,37 @@ public class UserAccessFacade<T> implements DataAccess<T> {
 	}
 
 	@Override
-	public T readUser(Integer id) {
+	public List<T> readAll() {
+		ObjectInputStream in = null;
+		T member = null;
+		List<T> mList = new ArrayList<>();
+		File staffFolder = new File(OUTPUT_DIR.concat("/"));
+		File sFiles[] = staffFolder.listFiles();
+
+
+		try {
+			for(File f:sFiles){
+				Path path = FileSystems.getDefault().getPath(OUTPUT_DIR.concat("/"), f.getName());
+				in = new ObjectInputStream(Files.newInputStream(path));
+				member = (T)in.readObject();
+				mList.add(member);
+			}
+
+
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(in != null) {
+				try {
+					in.close();
+				} catch(Exception e) {}
+			}
+		}
+		return mList;
+	}
+
+	@Override
+	public T readData(Integer id) {
 		ObjectInputStream in = null;
 		T user = null;
 		try {
