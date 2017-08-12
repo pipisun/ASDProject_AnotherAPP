@@ -15,7 +15,7 @@ public class UserAccessFacade<T> implements DataAccess<T> {
 	
 	public static final String OUTPUT_DIR = System.getProperty("user.dir") 
 			+ "/src/storage";
-	private boolean isLibraryMemberExist(String id){
+	private boolean isExist(String id){
 		File staffFolder = new File(OUTPUT_DIR.concat("/"));
 		File sFiles[] = staffFolder.listFiles();
 		for(File f:sFiles){
@@ -44,7 +44,7 @@ public class UserAccessFacade<T> implements DataAccess<T> {
 				}
 
 		}
-		return this.isLibraryMemberExist(idPath);
+		return this.isExist(idPath);
 	}
 
 	@Override
